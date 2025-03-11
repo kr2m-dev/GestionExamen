@@ -23,7 +23,44 @@ app.post('/api/create-exam', (req, res) => {
         res.status(200).json({ message: 'Examen ajouté avec succès' });
     });
 });
+// ... existing code ...
 
+// Route pour l'authentification
+app.post('/api/login', (req, res) => {
+    const { email, password } = req.body;
+    
+    // Déterminer si c'est un enseignant ou un étudiant
+    const isEnseignant = email.includes('@enseignant');
+    const table = isEnseignant ? 'enseignant' : 'etudiant';
+    
+    const sql = `SELECT * FROM ${table} WHERE email = ? AND motDePasse = ?`;
+    
+    db.query(sql, [email, password], (err, results) => {
+        if (err) {
+            console.error('❌ Erreur lors de l\'authentification :', err);
+            return res.status(500).json({ message: 'Erreur lors de l\'authentification' });
+        }
+        
+        if (results.length > 0) {
+            const user = results[0];
+            // Ne pas envoyer le mot de passe au client
+            delete user.motDePasse;
+            res.status(200).json({
+                user: {
+                    id: user.id,
+                    email: user.email,
+                    role: isEnseignant ? 'professor' : 'student',
+                    nom: user.nom,
+                    prenom: user.prenom
+                }
+            });
+        } else {
+            res.status(401).json({ message: 'Email ou mot de passe incorrect' });
+        }
+    });
+});
+
+// ... existing code ...
 // Démarrer le serveur
 app.listen(5000, () => {
     console.log('🚀 Serveur backend démarré sur http://localhost:5000');

@@ -13,6 +13,7 @@ import Notifications from './pages/Notifications';
 import PreviousExams from './pages/PreviousExams';
 import StudentExams from './pages/StudentExams';
 import { AuthProvider } from './context/AuthContext';
+import ExamList from './pages/exam-list';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/notifications" element={<Notifications />} />
           <Route path="/previous-exams" element={<PreviousExams />} />
           <Route path="/student-exams" element={<StudentExams />} />
+          <Route path="/listeExamen" element={<ExamList />}></Route>
         </Routes>
       </div>
     </AuthProvider>

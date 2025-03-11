@@ -15,34 +15,27 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = async (email, password) => {
-    // Simulate API call
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (email === 'professor@example.com' && password === 'password') {
-          const userData = {
-            id: '1',
-            email: 'professor@example.com',
-            role: 'professor',
-          };
-          setUser(userData);
-          localStorage.setItem('user', JSON.stringify(userData));
-          localStorage.setItem('userRole', 'professor');
-          resolve(userData);
-        } else if (email === 'student@example.com' && password === 'password') {
-          const userData = {
-            id: '2',
-            email: 'student@example.com',
-            role: 'student',
-          };
-          setUser(userData);
-          localStorage.setItem('user', JSON.stringify(userData));
-           localStorage.setItem('userRole', 'student');
-          resolve(userData);
-        } else {
-          reject('Invalid credentials');
-        }
-      }, 500);
-    });
+    try {
+      const response = await fetch('http://localhost:5000/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Identifiants invalides');
+      }
+
+      const data = await response.json();
+      setUser(data.user);
+      localStorage.setItem('user', JSON.stringify(data.user));
+      localStorage.setItem('userRole', data.user.role);
+      return data.user;
+    } catch (error) {
+      throw new Error('Erreur lors de la connexion');
+    }
   };
 
   const logout = () => {

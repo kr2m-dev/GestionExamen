@@ -53,6 +53,21 @@ function Sidebar({ isProfessor }) {
               </li>
               <li>
                 <NavLink
+                  to="/listeExamen"
+                  className={({ isActive }) =>
+                    `flex items-center py-2 px-4 rounded transition-colors duration-200 ${
+                      isActive
+                        ? 'bg-primary text-white'
+                        : 'hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300'
+                    }`
+                  }
+                >
+                  <ClipboardDocumentCheckIcon className="h-5 w-5 mr-2" />
+                  <span>Liste des Examens</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
                   to="/statistics"
                   className={({ isActive }) =>
                     `flex items-center py-2 px-4 rounded transition-colors duration-200 ${
