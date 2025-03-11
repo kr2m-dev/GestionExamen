@@ -1,0 +1,123 @@
+**Instructions pour Cursor AI – Création d'une Plateforme de Gestion d’Examens en React avec Vite.js**  
+
+💡 **Objectif** : Développer une **plateforme web moderne et ergonomique** en **React avec Vite.js**, permettant aux enseignants et aux étudiants de gérer les examens, soumissions, corrections et résultats. L’interface doit être **conviviale, fluide et responsive**, avec une palette de couleurs attrayante.  
+
+---  
+
+### **🛠️ Technologies à utiliser**  
+- **Frontend** : React.js (avec Vite.js pour un build rapide).  
+- **State Management** : Context API ou Redux Toolkit.  
+- **UI** : TailwindCSS pour un design épuré et moderne.  
+- **Routing** : React Router pour la navigation.  
+- **Backend Integration** : Fetch API ou Axios pour les appels à l'API.  
+- **Authentification** : JWT avec stockage sécurisé (localStorage ou cookies).  
+
+---  
+
+## **🌍 Pages à créer & fonctionnalités associées**  
+
+### **1️⃣ Page de Connexion** (🏠 Première page)  
+- **Design moderne** avec une interface minimaliste.  
+- 📌 **Champs** : Email, mot de passe + bouton "Se connecter".  
+- ✅ **Gestion de l’authentification** avec JWT.  
+- 🔗 **Redirection automatique** après connexion :  
+  - **Enseignant** → Dashboard Professeur.  
+  - **Étudiant** → Dashboard Étudiant.  
+
+---  
+
+### **2️⃣ Dashboard Professeur** (👨‍🏫 Enseignant)  
+- **Navigation intuitive avec barre latérale**.  
+- 📌 Widgets et raccourcis vers :  
+  - 📋 **Créer un Examen**.  
+  - 📑 **Liste des Copies** (Corrections en attente).  
+  - 📊 **Statistiques des étudiants** (Graphiques interactifs).  
+  - 🔔 **Notifications** (Nouvelles copies, corrections validées).  
+  - 📚 **Bibliothèque des Sujets** (Archivage des anciens examens).  
+
+---  
+
+### **3️⃣ Dashboard Étudiant** (🎓 Étudiant)  
+- 📌 Accès rapide à :  
+  - 📖 **Examens Disponibles** (Bouton "Passer l'examen").  
+  - 📜 **Mes Copies & Résultats** (Voir corrections et notes).  
+  - 🗂 **Sujets Précédents** (Consultation et téléchargement).  
+  - 🔔 **Notifications** (Résultats publiés, nouveaux examens).  
+  - 💬 **Forum de Questions** (Échanger avec enseignants et étudiants).  
+
+---  
+
+### **4️⃣ Page Création d’Examen** (📝 Professeur)  
+- **Formulaire interactif** avec React Hook Form.  
+- 📌 Champs :  
+  - **Titre, instructions, date de début, durée**.  
+  - **Ajout de questions** (QCM, texte libre, fichiers joints).  
+  - 🎯 **Options de notation et pondération**.  
+- ✅ **Bouton "Publier l’Examen"** avec confirmation.  
+
+---  
+
+### **5️⃣ Page d'Examen** (📖 Étudiant)  
+- **Affichage dynamique** des questions.  
+- 🕒 **Minuteur** visible en haut de la page.  
+- 📌 **Réponses interactives** :  
+  - Saisie pour **réponses ouvertes**.  
+  - Cases à cocher pour **QCM**.  
+- 📤 **Bouton "Soumettre ma copie"** avec alerte de confirmation.  
+
+---  
+
+### **6️⃣ Page Correction & Notation** (🧐 Professeur)  
+- **Tableau dynamique** affichant les copies soumises.  
+- ✏️ **Interface intuitive pour corriger** :  
+  - 🖍 **Surlignage & annotations**.  
+  - 🤖 **Suggestion de note par IA (DeepSeek)**.  
+  - ✍ **Modification et validation de la note**.  
+  - ✅ **Bouton "Notifier l’étudiant"**.  
+
+---  
+
+### **7️⃣ Page Consultation des Résultats** (📊 Étudiant)  
+- 📜 **Affichage de la copie corrigée** avec annotations du professeur.  
+- 🏆 **Note finale + commentaires**.  
+- 📈 **Comparaison avec la moyenne de la classe**.  
+
+---  
+
+### **8️⃣ Page Statistiques & Rapports** (📊 Professeur)  
+- 📊 **Graphiques interactifs** (React Charts ou Recharts).  
+- 📌 **Données affichées** :  
+  - Moyenne des notes.  
+  - Distribution des scores (histogramme).  
+  - Taux de réussite.  
+- 📤 **Bouton "Exporter le rapport" (CSV, PDF)**.  
+
+---  
+
+### **9️⃣ Forum de Questions** (💬 Étudiant)  
+- 📌 **Chat en temps réel** avec enseignants et étudiants.  
+- ✍ **Formulaire pour poser des questions**.  
+- 📢 **Système de réponses et mentions**.  
+
+---  
+
+### **🔟 Notifications & Messagerie** (🔔)  
+- 🎯 **Système de notifications en temps réel** (WebSockets ou polling).  
+- 📬 **Boîte de réception** pour messagerie interne.  
+
+---  
+
+## **🎨 Design & UX**  
+- **Palette de couleurs conviviale** (bleu, violet, blanc pour un effet pro et dynamique).  
+- **Utilisation de TailwindCSS** pour un rendu moderne et flexible.  
+- **Animations légères** pour fluidifier l’expérience utilisateur.  
+- **Mode sombre** optionnel pour le confort visuel.  
+- **Site responsive** compatible desktop & mobile.  
+
+---  
+
+📌 **Objectif final** : Un **site réactif, fluide et agréable**, facilitant la gestion des examens et optimisé pour enseignants & étudiants.  
+
+---
+
+Avec ces instructions, **Cursor AI** pourra générer une **application React avec Vite.js** parfaitement adaptée au projet ! 🚀
